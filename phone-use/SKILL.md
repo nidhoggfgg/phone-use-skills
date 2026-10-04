@@ -11,6 +11,14 @@ Perform the user's device task through Phone Use on the phone. The host needs Py
 
 ## Connect
 
+For an app-provided `/connect#sha256=...` setup link, use its HTTPS origin (remove
+the path and fragment) as the pairing address. The app serves its bundled Skill at
+`/skills/phone-use.zip` and version/hash metadata at `/skills/manifest.json`; no npx
+is required. When installing or updating from that link, verify the ZIP against the
+hash in the user's original URL before extraction, preserve other skills and local
+customizations, and keep saved pairings. Read this file directly if the host needs a
+new session to discover a newly installed Skill.
+
 This Skill works without MCP. Replace `CLIENT` with the absolute path to `scripts/phoneuse_client.py` in this directory; quote paths containing spaces:
 
 ```sh

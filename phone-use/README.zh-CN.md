@@ -6,6 +6,11 @@
 
 ## 连接
 
+用户提供 App 的 `/connect#sha256=...` 接入链接时，移除路径与片段，用其 HTTPS 源地址配对。
+App 在 `/skills/phone-use.zip` 提供随当前版本内置的完整 Skill，`/skills/manifest.json` 返回版本与校验信息，
+无需 npx。从链接安装或更新时，先用用户原始链接中的哈希校验 ZIP 再解压，保留其他 Skill、本地修改与已有配对。
+宿主若需新会话才发现新 Skill，当前会话可直接读取本文件并运行脚本。
+
 独立使用本 Skill 不需要 MCP。将下列 `CLIENT` 替换为本目录内 `scripts/phoneuse_client.py` 的绝对路径（路径含空格时加引号）：
 
 ```sh
